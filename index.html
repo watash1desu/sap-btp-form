@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SAP BTP — New Service Request</title>
+  <title>ITC Limited — New Service Request</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -12,11 +12,12 @@
 
   <!-- ============================================================
     LOGIN PAGE
+    Shown first before the form. Hidden after successful login via JS.
   ============================================================ -->
   <div class="login-page" id="login-page">
     <div class="login-card">
       <div class="login-logo">
-        <span class="sap-logo">SAP</span>
+        <img src="assets/itc-logo.svg" alt="ITC Limited" class="company-logo">
       </div>
       <h2 class="login-title">Service Request Portal</h2>
 
@@ -38,6 +39,7 @@
         </div>
         <p class="login-error" id="login-error"></p>
         <button class="btn-primary login-btn" onclick="handleLogin()">Sign In</button>
+        <p class="auth-switch-text">New user? <a href="#" onclick="showAuthTab('signup'); return false;">Please sign up</a></p>
       </div>
 
       <!-- SIGN UP form -->
@@ -60,16 +62,18 @@
 
   <!-- ============================================================
     MAIN FORM WRAPPER
+    Everything below is hidden until login.
+    JS removes the "hidden" class after successful login.
   ============================================================ -->
   <div class="form-wrapper hidden" id="form-wrapper">
 
     <!-- ============================================================
-      SAP TOP HEADER
-      Contains the SAP logo text, portal name, and top-right actions.
+      TOP HEADER
+      Contains the ITC logo text, portal name, and top-right actions.
     ============================================================ -->
     <header class="sap-header">
       <div class="sap-header-left">
-        <span class="sap-logo">SAP</span>
+        <img src="assets/itc-logo.svg" alt="ITC Limited" class="company-logo company-logo--header">
         <span class="sap-portal-name">Service Request Portal</span>
       </div>
       <div class="sap-header-right">
@@ -95,6 +99,7 @@
     <!-- ============================================================
       MAIN LAYOUT
       Two-column layout: left nav tracker + right form content.
+      Uses CSS Flexbox — left column is fixed width, right fills the rest.
     ============================================================ -->
     <div class="main-layout">
 
@@ -169,6 +174,7 @@
 
       <!-- ============================================================
         RIGHT CONTENT AREA
+        Each step is a <div class="form-page"> with a unique id.
       ============================================================ -->
       <div class="form-content">
 
