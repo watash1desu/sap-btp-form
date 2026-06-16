@@ -17,7 +17,6 @@ body {
   flex-direction: column; 
 }
 
-
 /* ================================================================
    SAP TOP HEADER
 ================================================================ */
@@ -72,7 +71,6 @@ body {
   border-color: #ffffff;
 }
 
-
 /* ================================================================
    PAGE TITLE BAR
    White bar below the header with the form name and subtitle.
@@ -96,7 +94,6 @@ body {
   margin-top: 2px;
 }
 
-
 /* ================================================================
    MAIN LAYOUT
 ================================================================ */
@@ -105,7 +102,6 @@ body {
   flex: 1;
   overflow: hidden;
 }
-
 
 /* ================================================================
    LEFT NAV — STEP TRACKER
@@ -183,7 +179,6 @@ body {
   margin-left: 13px;
 }
 
-
 /* ================================================================
    RIGHT FORM CONTENT AREA
 ================================================================ */
@@ -193,9 +188,8 @@ body {
   padding: 24px;
 }
 
-
 /* ================================================================
-   FORM PAGES — only .active is visible
+   FORM PAGES 
 ================================================================ */
 .form-page {
   display: none;
@@ -204,7 +198,6 @@ body {
 .form-page.active {
   display: block;
 }
-
 
 /* ================================================================
    FORM SECTION
@@ -384,7 +377,6 @@ body {
 
 /* ================================================================
    TWO-COLUMN FIELD ROW
-   Used in step 2 to place two fields side by side
 ================================================================ */
 .field-row {
   display: flex;
@@ -490,7 +482,6 @@ body {
 
 /* ================================================================
    USER AVATAR
-   Circle with initials shown in top-right after login.
 ================================================================ */
 .user-avatar {
   width: 32px;
@@ -643,8 +634,11 @@ body {
   object-fit: contain;
 }
 
-/* Smaller version for the dark top header bar (only 48px tall) */
 .company-logo--header {
-  max-height: 32px;
-  max-width: 90px;
+  max-height: 28px;
+  max-width: 28px;
+  background: #ffffff;
+  border-radius: 50%;
+  padding: 4px;
+  box-sizing: border-box;
 }
