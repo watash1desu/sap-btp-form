@@ -1,0 +1,629 @@
+/* ================================================================
+   RESET & BASE
+================================================================ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  background: #f5f6f7;
+  color: #22242a;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column; 
+}
+
+
+/* ================================================================
+   SAP TOP HEADER
+================================================================ */
+.sap-header {
+  background: #1b2733;
+  color: #ffffff;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  flex-shrink: 0;
+}
+
+.sap-header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.sap-logo {
+  font-size: 20px;
+  font-weight: 700;
+  color: #ffffff;
+  background: #0070f2;
+  padding: 2px 8px;
+  border-radius: 2px;
+  letter-spacing: 1px;
+}
+
+.sap-portal-name {
+  font-size: 14px;
+  color: #c8cdd4;
+}
+
+.sap-header-right {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-header {
+  background: transparent;
+  border: 1px solid #5a6472;
+  color: #ffffff;
+  padding: 4px 14px;
+  border-radius: 4px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.btn-header:hover {
+  border-color: #ffffff;
+}
+
+
+/* ================================================================
+   PAGE TITLE BAR
+   White bar below the header with the form name and subtitle.
+================================================================ */
+.page-title-bar {
+  background: #ffffff;
+  padding: 16px 24px;
+  border-bottom: 1px solid #e0e2e5;
+  flex-shrink: 0;
+}
+
+.page-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #22242a;
+}
+
+.page-subtitle {
+  font-size: 13px;
+  color: #6b6f76;
+  margin-top: 2px;
+}
+
+
+/* ================================================================
+   MAIN LAYOUT
+================================================================ */
+.main-layout {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+
+/* ================================================================
+   LEFT NAV — STEP TRACKER
+================================================================ */
+.step-tracker {
+  width: 240px;
+  min-width: 240px;
+  background: #ffffff;
+  border-right: 1px solid #e0e2e5;
+  padding: 24px 16px;
+  overflow-y: auto;
+}
+
+.tracker-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  cursor: default;
+  padding: 4px 0;
+}
+
+.tracker-circle {
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  border-radius: 50%;
+  border: 2px solid #9ea3ab;
+  color: #9ea3ab;
+  font-size: 12px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.tracker-item.active .tracker-circle {
+  background: #0070f2;
+  border-color: #0070f2;
+  color: #ffffff;
+}
+
+.tracker-item.completed .tracker-circle {
+  background: #ffffff;
+  border-color: #0070f2;
+  color: #0070f2;
+}
+
+.tracker-label {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.tracker-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #22242a;
+}
+
+.tracker-item:not(.active) .tracker-title {
+  color: #6b6f76;
+}
+
+.tracker-desc {
+  font-size: 11px;
+  color: #9ea3ab;
+  line-height: 1.4;
+}
+
+.tracker-connector {
+  width: 2px;
+  height: 28px;
+  background: #e0e2e5;
+  margin-left: 13px;
+}
+
+
+/* ================================================================
+   RIGHT FORM CONTENT AREA
+================================================================ */
+.form-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px;
+}
+
+
+/* ================================================================
+   FORM PAGES — only .active is visible
+================================================================ */
+.form-page {
+  display: none;
+}
+
+.form-page.active {
+  display: block;
+}
+
+
+/* ================================================================
+   FORM SECTION
+================================================================ */
+.form-section {
+  background: #ffffff;
+  border: 1px solid #e0e2e5;
+  border-radius: 8px;
+  padding: 24px;
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #22242a;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e0e2e5;
+}
+
+.section-placeholder {
+  color: #9ea3ab;
+  font-size: 13px;
+}
+
+
+/* ================================================================
+   FIELD GROUPS
+================================================================ */
+.field-group {
+  margin-bottom: 20px;
+}
+
+.field-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #22242a;
+  margin-bottom: 6px;
+}
+
+.required {
+  color: #e00000;
+  margin-left: 2px;
+}
+
+.field-input {
+  width: 100%;
+  height: 36px;
+  padding: 0 10px;
+  border: 1px solid #c8cdd4;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #22242a;
+  background: #ffffff;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.field-input:focus {
+  border-color: #0070f2;
+}
+
+.field-textarea {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #c8cdd4;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #22242a;
+  background: #ffffff;
+  outline: none;
+  resize: vertical;
+  font-family: Arial, sans-serif;
+  transition: border-color 0.15s;
+}
+
+.field-textarea:focus {
+  border-color: #0070f2;
+}
+
+.field-select {
+  width: 100%;
+  height: 36px;
+  padding: 0 10px;
+  border: 1px solid #c8cdd4;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #22242a;
+  background: #ffffff;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+
+.field-select:focus {
+  border-color: #0070f2;
+}
+
+.radio-group {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  padding: 8px 0;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  color: #22242a;
+}
+
+.radio-option input[type="radio"] {
+  accent-color: #0070f2;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+
+/* ================================================================
+   FOOTER NAV BUTTONS
+================================================================ */
+.form-footer {
+  background: #ffffff;
+  border-top: 1px solid #e0e2e5;
+  padding: 12px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.footer-right {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-secondary {
+  background: #ffffff;
+  border: 1px solid #c8cdd4;
+  color: #22242a;
+  padding: 8px 20px;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+
+.btn-secondary:hover {
+  border-color: #0070f2;
+  color: #0070f2;
+}
+
+.btn-primary {
+  background: #0070f2;
+  border: 1px solid #0070f2;
+  color: #ffffff;
+  padding: 8px 20px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.btn-primary:hover {
+  background: #0057c2;
+}
+
+#btn-back:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+
+/* ================================================================
+   TWO-COLUMN FIELD ROW
+   Used in step 2 to place two fields side by side
+================================================================ */
+.field-row {
+  display: flex;
+  gap: 24px;
+}
+
+.field-row .field-group {
+  flex: 1;
+}
+
+.field-group--half {
+  max-width: calc(50% - 12px);
+}
+
+.section-icon {
+  margin-right: 8px;
+  color: #0070f2;
+}
+
+
+/* ================================================================
+   VALIDATION ERROR STYLES
+   Red border on inputs that are empty when Next is pressed.
+   Red tint on radio groups with nothing selected.
+   Cleared automatically when the user fills the field.
+================================================================ */
+.input-error {
+  border-color: #e00000 !important;
+  background: #fff5f5;
+}
+
+.field-error {
+  background: #fff5f5;
+  border-radius: 4px;
+  padding: 4px 8px;
+}
+
+
+/* ================================================================
+   LOGIN PAGE
+   Full-screen centered card shown before the form.
+================================================================ */
+.login-page {
+  min-height: 100vh;
+  background: #f5f6f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-card {
+  background: #ffffff;
+  border: 1px solid #e0e2e5;
+  border-radius: 8px;
+  padding: 40px;
+  width: 100%;
+  max-width: 380px;
+}
+
+.login-logo {
+  margin-bottom: 20px;
+}
+
+.login-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #22242a;
+  margin-bottom: 4px;
+}
+
+.login-subtitle {
+  font-size: 13px;
+  color: #6b6f76;
+  margin-bottom: 24px;
+}
+
+.login-btn {
+  width: 100%;
+  height: 40px;
+  margin-top: 8px;
+}
+
+.login-error {
+  color: #e00000;
+  font-size: 13px;
+  margin-bottom: 8px;
+  display: none; /* hidden until JS shows it */
+}
+
+.login-error.visible {
+  display: block;
+}
+
+
+/* ================================================================
+   FORM WRAPPER
+   Wraps everything after login. Hidden by default.
+   JS removes "hidden" class after successful login.
+================================================================ */
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.form-wrapper.hidden {
+  display: none;
+}
+
+
+/* ================================================================
+   USER AVATAR
+   Circle with initials shown in top-right after login.
+================================================================ */
+.user-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #0070f2;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.5px;
+}
+
+
+/* ================================================================
+   PAGE TITLE BAR — updated to flex row
+   Title/subtitle on left, Cancel button on right.
+================================================================ */
+.page-title-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.page-title-left {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+
+/* ================================================================
+   AUTH TABS — Log In / Sign Up switcher on the login page
+================================================================ */
+.auth-tabs {
+  display: flex;
+  border-bottom: 1px solid #e0e2e5;
+  margin-bottom: 20px;
+}
+
+.auth-tab {
+  flex: 1;
+  background: none;
+  border: none;
+  padding: 10px 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #6b6f76;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+}
+
+.auth-tab.active {
+  color: #0070f2;
+  border-bottom-color: #0070f2;
+}
+
+.auth-form {
+  display: none;
+}
+
+.auth-form.active {
+  display: block;
+}
+
+
+/* ================================================================
+   FILE UPLOAD BOX — Step 5: Attachments
+================================================================ */
+.upload-box {
+  border: 2px dashed #c8cdd4;
+  border-radius: 6px;
+  padding: 32px;
+  text-align: center;
+  color: #6b6f76;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.upload-box:hover {
+  border-color: #0070f2;
+}
+
+.file-list {
+  list-style: none;
+  margin-top: 12px;
+  padding: 0;
+}
+
+.file-list li {
+  font-size: 13px;
+  color: #22242a;
+  padding: 6px 10px;
+  background: #f5f6f7;
+  border-radius: 4px;
+  margin-bottom: 6px;
+}
+
+
+/* ================================================================
+   REVIEW SUMMARY — Step 6
+================================================================ */
+.field-list {
+  list-style: none;
+  padding: 0;
+  border-top: 1px solid #ececef;
+}
+
+.field-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #ececef;
+  font-size: 13px;
+}
+
+.field-name {
+  font-weight: 600;
+  color: #22242a;
+}
+
+.field-value {
+  color: #0070f2;
+}
