@@ -10,12 +10,6 @@ const PORT = 4000;
 app.use(cors());
 app.use(express.json());
 
-// Serves the frontend files (the folder one level up from backend/) so the
-// whole app can be opened at http://localhost:4000/requestor.html instead
-// of double-clicking the HTML files. This matters because file:// pages
-// don't reliably share localStorage with each other in every browser —
-// serving everything from one http://localhost origin guarantees every
-// persona page reads/writes the same storage.
 app.use(express.static(path.join(__dirname, "..")));
 
 // opens (or creates) a file called users.db in this same folder

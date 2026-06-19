@@ -1,11 +1,3 @@
-// ================================================================
-// TECHNICAL ARCHITECT PAGE LOGIC
-// Receives requests from Financial Controller (cost-impact path)
-// or directly from Assessor (no cost impact). Reviews security,
-// operational and data-privacy impact, then approves (-> BTPCOE
-// Head), rejects (terminal), or sends back to the previous persona.
-// ================================================================
-
 const PERSONA_KEY = "technicalArchitect";
 let dashFilter = "all";
 let activeQueueId = null;
@@ -194,7 +186,7 @@ function buildTAActionPanel(r) {
         '</div>' +
       '</div>' +
 
-      // Row 3: Data Privacy Impact + Delegate To (pre-filled with queue name as per sketch)
+      // Row 3: Data Privacy Impact + Delegate To 
       '<div class="field-row" style="align-items:flex-start;gap:16px;margin-bottom:14px;">' +
         '<div class="field-group" style="flex:1;">' +
           '<label class="field-label" id="taDataPrivacyImpactLabel">Data Privacy Impact</label>' +
@@ -211,7 +203,7 @@ function buildTAActionPanel(r) {
         '</div>' +
       '</div>' +
 
-      // Technical Notes full-width
+      // Technical Notes 
       '<div class="field-group" style="margin-bottom:14px;">' +
         '<label class="field-label">Technical Notes / Architecture Remarks</label>' +
         '<textarea class="field-textarea" id="taNotes" rows="2" placeholder="Optional architecture remarks..."></textarea>' +

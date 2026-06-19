@@ -1,10 +1,3 @@
-// ================================================================
-// ADMIN PAGE LOGIC
-// Final stage. Admin can Execute (marks request approved/completed),
-// Reject (terminal), or Send Back to BTPCOE Head. No form fields —
-// just the decision + an optional comment.
-// ================================================================
-
 const PERSONA_KEY = "admin";
 let dashFilter = "all";
 let activeQueueId = null;
@@ -38,7 +31,7 @@ function updateQueueCount() {
   document.getElementById("queue-count").textContent = myQueue.length;
 }
 
-// ---------------- DASHBOARD (view-only) ----------------
+// ---------------- DASHBOARD ----------------
 function filterDashboard(status) {
   dashFilter = status;
   document.querySelectorAll(".dash-card").forEach(function (c) { c.classList.toggle("active-filter", c.getAttribute("data-filter") === status); });
@@ -90,7 +83,7 @@ function backToDashboard() {
   updateQueueCount();
 }
 
-// ---------------- MY QUEUE (actionable) ----------------
+// ---------------- MY QUEUE ----------------
 function renderQueueList() {
   var myQueue = loadRequests().filter(function (r) { return r.currentPersona === PERSONA_KEY && r.status !== "rejected" && r.status !== "approved"; });
   document.getElementById("queue-list-count").textContent = myQueue.length;

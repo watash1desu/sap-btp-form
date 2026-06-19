@@ -72,9 +72,6 @@ function todayLabel() {
   return new Date().toISOString().slice(0, 10);
 }
 
-// ----------------------------------------------------------------
-// localStorage read/write
-// ----------------------------------------------------------------
 function loadRequests() {
   const raw = localStorage.getItem(REQUESTS_KEY);
   if (!raw) {
@@ -108,7 +105,6 @@ function getRequestById(id) {
   return loadRequests().find(function (r) { return r.id === id; }) || null;
 }
 
-// Wipes the demo data back to the seed set — handy if a demo run gets messy.
 function resetRequestStore() {
   localStorage.removeItem(REQUESTS_KEY);
   return loadRequests();
@@ -169,7 +165,7 @@ function rejectRequestStage(request, fromPersona) {
   request.status = "rejected";
 }
 
-// Bounces a request back to an earlier persona for rework.
+// sends a request back to an earlier persona for rework.
 function sendBackRequest(request, fromPersona, toPersona) {
   request.stages[fromPersona].state = "pending";
   request.stages[fromPersona].decision = "sent-back";
@@ -189,7 +185,7 @@ function completeRequest(request, fromPersona) {
 }
 
 // ----------------------------------------------------------------
-// Progress stepper — renders the Assessor -> ... -> Admin tracker
+// Progress stepper 
 // (green check = approved, orange check = approved after a
 // send-back, red cross = rejected, blue = current/active stage)
 // ----------------------------------------------------------------
@@ -233,10 +229,7 @@ function renderStepper(request) {
       circleClass += " stepper-circle--active";
       stateLabel = "(You are here) Pending";
     } else if (i > currentIndex && stage.decision === "sent-back") {
-      // This persona is the one who just bounced the request backward —
-      // the pointer has already moved behind them, so without this branch
-      // they'd fall through to a plain numbered "Pending" circle with no
-      // indication they ever acted on it.
+        //handling send back persona stage
       circleClass += " stepper-circle--sentback";
       icon = "&#8617;";
       stateLabel = "Sent Back";
@@ -257,8 +250,7 @@ function renderStepper(request) {
 }
 
 // ----------------------------------------------------------------
-// Comments + attachments panel (the "Previous Approver Comments"
-// / "Attachments" two-column block)
+// Comments + attachments panel
 // ----------------------------------------------------------------
 function renderCommentsAndAttachments(request) {
   let commentsHtml = "";

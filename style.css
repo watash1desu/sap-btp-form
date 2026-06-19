@@ -501,11 +501,6 @@ body {
 
 /* ================================================================
    FORM WRAPPER
-   Visible by default — used as-is on every persona page that has
-   no login gate. The Requestor page additionally puts the
-   `form-wrapper--gated` class on this element, which flips it to
-   hidden-by-default so it can't flash visible before the login
-   check runs; enterApp() then reveals it with .active.
 ================================================================ */
 .form-wrapper {
   display: flex;
@@ -521,8 +516,6 @@ body {
   display: flex;
 }
 
-/* Generic show/hide utility, reused across pages (upload boxes,
-   delegate dropdowns, conditional fields, etc.) */
 .hidden {
   display: none;
 }
@@ -1054,8 +1047,7 @@ body {
 }
 
 /* ================================================================
-   QUEUE LAYOUT — list (left) + detail (right), used by My Queue
-   and by the read-only "open from Dashboard" detail view
+   QUEUE LAYOUT — list (left) + detail (right)
 ================================================================ */
 .queue-layout {
   display: flex;
@@ -1370,8 +1362,7 @@ body {
 }
 
 /* ================================================================
-   ACTION FOOTER — decision dropdown / comment / attach / submit,
-   shown only when a request is open in someone's actionable queue
+   ACTION FOOTER —
 ================================================================ */
 .action-panel {
   background: #f3f8ff;
@@ -1438,7 +1429,7 @@ body {
 .delegate-option:hover { background: #f5f6f7; }
 
 /* ================================================================
-   REVIEW BANNER — shown at top of step-1 review page
+   REVIEW BANNER —
 ================================================================ */
 .review-banner {
   display: flex;
@@ -1454,36 +1445,12 @@ body {
   margin-bottom: 14px;
 }
 
-/* Decision dropdown option text — neutral colour, dot colour is baked into the option text character */
 select option[value="approved"] { color: #374151; }
 select option[value="execute"] { color: #374151; }
 select option[value="rejected"] { color: #374151; }
 select option[value="sent-back"] { color: #374151; }
-/* When the browser's native blue highlight is shown, keep text dark so coloured dots stay visible */
 select option:checked,
 select option:focus {
   color: #1a1a2e;
   background-color: #0070f2;
-}
-
-/* ================================================================
-   PHASE-2 STUB BANNER (Technical Architect / BTPCOE / Admin)
-================================================================ */
-.stub-banner {
-  background: #fffbeb;
-  border: 1px solid #fde68a;
-  border-radius: 8px;
-  padding: 14px 18px;
-  font-size: 13px;
-  color: #92400e;
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-@media (max-width: 900px) {
-  .queue-layout { flex-direction: column; }
-  .queue-list-panel { width: 100%; min-width: 0; }
-  .detail-columns { flex-direction: column; }
 }

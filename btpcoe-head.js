@@ -1,11 +1,3 @@
-// ================================================================
-// BTPCOE HEAD PAGE LOGIC
-// Receives requests from Technical Architect. Reviews the full
-// picture, can delegate to one or more people, then approves
-// (-> Admin), rejects (terminal), or sends back to Technical
-// Architect.
-// ================================================================
-
 const PERSONA_KEY = "btpcoeHead";
 let dashFilter = "all";
 let activeQueueId = null;
@@ -39,7 +31,7 @@ function updateQueueCount() {
   document.getElementById("queue-count").textContent = myQueue.length;
 }
 
-// ---------------- DASHBOARD (view-only) ----------------
+// ---------------- DASHBOARD ----------------
 function filterDashboard(status) {
   dashFilter = status;
   document.querySelectorAll(".dash-card").forEach(function (c) { c.classList.toggle("active-filter", c.getAttribute("data-filter") === status); });
@@ -91,7 +83,7 @@ function backToDashboard() {
   updateQueueCount();
 }
 
-// ---------------- MY QUEUE (actionable) ----------------
+// ---------------- MY QUEUE ----------------
 function renderQueueList() {
   var myQueue = loadRequests().filter(function (r) { return r.currentPersona === PERSONA_KEY && r.status !== "rejected" && r.status !== "approved"; });
   document.getElementById("queue-list-count").textContent = myQueue.length;

@@ -1,9 +1,3 @@
-// ================================================================
-// ASSESSOR PAGE LOGIC
-// Assessor's only real decision is: does this request have a cost
-// impact? Yes -> Financial Controller, No -> Technical Architect.
-// ================================================================
-
 const PERSONA_KEY = "assessor";
 let dashFilter = "all";
 let activeQueueId = null;
@@ -37,7 +31,7 @@ function updateQueueCount() {
   document.getElementById("queue-count").textContent = myQueue.length;
 }
 
-// ---------------- DASHBOARD (view-only) ----------------
+// ---------------- DASHBOARD ----------------
 function filterDashboard(status) {
   dashFilter = status;
   document.querySelectorAll(".dash-card").forEach(function (c) { c.classList.toggle("active-filter", c.getAttribute("data-filter") === status); });
@@ -79,7 +73,7 @@ function openReadOnlyDetail(id) {
   document.getElementById("detail-readonly-content").innerHTML = buildDetailHeader(r) + renderStepper(r) + renderCommentsAndAttachments(r) + '<div class="review-cards">' + renderRequestDetailsCard(r) + '</div>';
 }
 
-// ---------------- MY QUEUE (actionable) ----------------
+// ---------------- MY QUEUE ----------------
 function renderQueueList() {
   const myQueue = loadRequests().filter(function (r) { return r.currentPersona === PERSONA_KEY && r.status !== "rejected" && r.status !== "approved"; });
   document.getElementById("queue-list-count").textContent = myQueue.length;

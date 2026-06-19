@@ -38,7 +38,6 @@ sap-portal-fixed/
 │
 ├── requests-store.js           # Shared data layer (localStorage) + shared render helpers
 ├── style.css                   # One shared stylesheet for all pages
-├── persona-stub.js             # Unused scaffolding — kept as reference for adding new personas
 │
 ├── assets/
 │   └── itc-logo.svg
@@ -50,7 +49,15 @@ sap-portal-fixed/
 │
 └── README.md
 ```
+Each persona now has its own implementation:
 
+- assessor.js
+- financial-controller.js
+- technical-architect.js
+- btpcoe-head.js
+- admin.js
+
+The previous persona-stub.js scaffold has been retired and removed.
 ---
 
 ## Running Locally
