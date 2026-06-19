@@ -1,5 +1,8 @@
 const express = require("express");
+<<<<<<< HEAD
 const path = require("path");
+=======
+>>>>>>> e827a042c29a53ae83366f2a32283dd893e62f4a
 const cors = require("cors");
 const bcrypt = require("bcryptjs");
 const Database = require("better-sqlite3");
@@ -10,6 +13,7 @@ const PORT = 4000;
 app.use(cors());
 app.use(express.json());
 
+<<<<<<< HEAD
 // Serves the frontend files (the folder one level up from backend/) so the
 // whole app can be opened at http://localhost:4000/requestor.html instead
 // of double-clicking the HTML files. This matters because file:// pages
@@ -18,6 +22,8 @@ app.use(express.json());
 // persona page reads/writes the same storage.
 app.use(express.static(path.join(__dirname, "..")));
 
+=======
+>>>>>>> e827a042c29a53ae83366f2a32283dd893e62f4a
 // opens (or creates) a file called users.db in this same folder
 const db = new Database("users.db");
 
@@ -75,5 +81,9 @@ app.post("/login", (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`Backend running at http://localhost:${PORT}`);
+<<<<<<< HEAD
   console.log(`Frontend available at http://localhost:${PORT}/requestor.html`);
 });
+=======
+});
+>>>>>>> e827a042c29a53ae83366f2a32283dd893e62f4a
